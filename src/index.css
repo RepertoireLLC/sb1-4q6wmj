@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+canvas {
+  touch-action: none;
+}
+
+/* Custom Scrollbar */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Glass Morphism */
+.glass-morphism {
+  @apply bg-white/10 backdrop-blur-md border border-white/10;
+}
+
+.glass-morphism-dark {
+  @apply bg-black/30 backdrop-blur-md border border-white/5;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300 ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Text Gradients */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500;
+}
+
+/* Card Effects */
+.card-hover {
+  @apply transition-all duration-300 ease-out;
+}
+
+.card-hover:hover {
+  @apply transform scale-[1.02] shadow-lg;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-300 
+         hover:shadow-lg hover:shadow-white/5 active:scale-95;
+}
+
+.btn-secondary {
+  @apply px-4 py-2 bg-black/20 hover:bg-black/30 text-white rounded-lg transition-all duration-300
+         hover:shadow-lg hover:shadow-black/5 active:scale-95;
+}
+
+/* Input Styles */
+.input-glow {
+  @apply transition-shadow duration-300;
+}
+
+.input-glow:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Loading Effects */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.03) 25%, 
+    rgba(255, 255, 255, 0.08) 50%, 
+    rgba(255, 255, 255, 0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Node Connections */
+.node-connection {
+  @apply absolute w-px bg-gradient-to-b from-white/5 to-transparent;
+  height: 100px;
+  transform-origin: top;
+}
+
+/* Profile Elements */
+.profile-ring {
+  @apply absolute inset-0 border-2 rounded-full;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
